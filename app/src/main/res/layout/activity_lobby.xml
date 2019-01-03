@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LobbyActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/txtLId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/edtLId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            />
+
+        <TextView
+            android:id="@+id/txtLScoreWinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/score_winner"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/edtScoreWinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/txtLScoreLoser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/score_loser"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/edtScoreLoser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/txtLWinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/winner"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/edtWinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/txtLDateStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/datestart"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/edtLDateStart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/txtLTournamentId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tournament_id"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/edtTournamentId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/txtLRadiantTeamName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/radiant_team_name"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/edtRadiantTeamName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/txtLDireTeamName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dire_team_name"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/edtDireTeamName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:background="#32CD32"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="5dp"
+            />
+
+        <Button
+            android:id="@+id/btnDel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_lobby"
+            android:background="#FF0000"
+            android:textColor="#ffffff"
+            />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TeamActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/txtTId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/edtTId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            />
+
+        <TextView
+            android:id="@+id/txtTTeamName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/team_name"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/edtTeamName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/txtTTag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tag"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/edtTag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <TextView
+            android:id="@+id/txtTNumberOfPlayers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/number_of_players"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/edtNumberOfPlayers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save"
+            android:background="#32CD32"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="5dp"
+            />
+
+        <Button
+            android:id="@+id/btnDel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_team"
+            android:background="#FF0000"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="5dp"
+
+            />
+
+
+        <Button
+            android:id="@+id/btnPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/show_players"
+            android:background="#32CD32"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="5dp"
+            />
+
+    </LinearLayout>
+
+</ScrollView>
