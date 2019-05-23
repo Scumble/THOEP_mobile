@@ -20,40 +20,22 @@
             android:textColor="#ffffff"
             android:layout_marginTop="5dp"
             />
+
         <Button
-            android:id="@+id/btnProTeam"
+            android:id="@+id/btnAddPatient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ViewProTeams"
-            android:background="#BDB76B"
-            android:textColor="#ffffff"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            />
-        <Button
-            android:id="@+id/btnStream"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/watch_stream"
-            android:background="#BDB76B"
-            android:textColor="#ffffff"
-            android:layout_marginBottom="5dp"
-            />
-        <Button
-            android:id="@+id/btnAddTournament"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/add_tournament"
+            android:text="@string/add_patient"
             android:background="#BA55D3"
             android:textColor="#ffffff"
             android:layout_marginBottom="5dp"
             />
 
         <Button
-            android:id="@+id/btnGetTournamentsList"
+            android:id="@+id/btnGetPatientList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/fetch_tournament"
+            android:text="@string/fetch_patient"
             android:background="#32CD32"
             android:textColor="#ffffff"
             android:layout_marginBottom="5dp"

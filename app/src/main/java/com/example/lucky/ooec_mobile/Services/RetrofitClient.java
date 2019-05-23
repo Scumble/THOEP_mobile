@@ -14,6 +14,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.moshi.MoshiConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class RetrofitClient {
     public static final String API_URL = "http://10.0.2.2:13315/api/";
@@ -44,6 +45,7 @@ public class RetrofitClient {
         OkHttpClient.Builder builder = new OkHttpClient.Builder()
                 .addInterceptor(interceptor);
 
+
         return builder.build();
 
     }
@@ -52,6 +54,7 @@ public class RetrofitClient {
         return new Retrofit.Builder()
                 .baseUrl(API_URL)
                 .client(client)
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build();
     }

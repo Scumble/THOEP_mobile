@@ -13,10 +13,10 @@
         >
 
         <Button
-            android:id="@+id/btnAddLobby"
+            android:id="@+id/btnAddHealthInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/add_lobby"
+            android:text="@string/add_health_info"
             android:background="#BA55D3"
             android:textColor="#ffffff"
             android:layout_marginTop="5dp"
@@ -24,10 +24,10 @@
             />
 
         <Button
-            android:id="@+id/btnGetLobbyList"
+            android:id="@+id/btnGetHealthInfoList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/fetch_lobby"
+            android:text="@string/fetch_health_info"
             android:background="#32CD32"
             android:textColor="#ffffff"
             android:layout_marginBottom="5dp"

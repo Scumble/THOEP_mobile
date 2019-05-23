@@ -6,62 +6,50 @@
     >
 
     <TextView
-        android:id="@+id/txtTournamentId"
+        android:id="@+id/txtPatientId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="3dp"
         />
     <TextView
-        android:id="@+id/txtIdentityId"
+        android:id="@+id/txtUserId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="3dp"
         />
 
     <TextView
-        android:id="@+id/txtTournamentname"
+        android:id="@+id/txtFirstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="3dp"
         />
     <TextView
-        android:id="@+id/txtPlace"
+        android:id="@+id/txtLastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="3dp"
         />
     <TextView
-        android:id="@+id/txtType"
+        android:id="@+id/txtGender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="3dp"
         />
     <TextView
-        android:id="@+id/txtPrizePool"
+        android:id="@+id/txtPatientAge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="3dp"
         />
     <TextView
-        android:id="@+id/txtDateStart"
+        android:id="@+id/txtAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="3dp"
         />
     <TextView
-        android:id="@+id/txtDateEnd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="3dp"
-        />
-    <TextView
-        android:id="@+id/txtDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="3dp"
-        />
-    <TextView
-        android:id="@+id/txtGame"
+        android:id="@+id/txtBirthDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="3dp"

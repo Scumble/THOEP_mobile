@@ -8,11 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.lucky.ooec_mobile.Adapters.PatientAdapter;
 import com.example.lucky.ooec_mobile.Adapters.TokenManager;
-import com.example.lucky.ooec_mobile.Adapters.TournamentAdapter;
-import com.example.lucky.ooec_mobile.Models.Tournament;
+import com.example.lucky.ooec_mobile.Models.Patient;
+import com.example.lucky.ooec_mobile.Services.PatientServices;
 import com.example.lucky.ooec_mobile.Services.RetrofitClient;
-import com.example.lucky.ooec_mobile.Services.TournamentServices;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,28 +23,25 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnAddTournament;
-    Button btnGetTournamentsList;
-    Button btnStream;
-    Button btnProTeam;
+    Button btnAddPatient;
+    Button btnGetPatientList;
     Button btnLogout;
     ListView listView;
 
-    TournamentServices tournamentServices;
+    PatientServices patientServices;
     TokenManager tokenManager;
-    List<Tournament> list = new ArrayList<Tournament>();
+    List<Patient> list = new ArrayList<Patient>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("OOEC");
+        setTitle("THOEP");
 
-        btnAddTournament = (Button) findViewById(R.id.btnAddTournament);
-        btnGetTournamentsList = (Button) findViewById(R.id.btnGetTournamentsList);
-        btnStream=(Button) findViewById(R.id.btnStream);
-        btnProTeam=(Button) findViewById(R.id.btnProTeam);
+        btnAddPatient = (Button) findViewById(R.id.btnAddPatient);
+        btnGetPatientList = (Button) findViewById(R.id.btnGetPatientList);
+
         btnLogout=(Button) findViewById(R.id.btnLogout);
         listView = (ListView) findViewById(R.id.listView);
         tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", MODE_PRIVATE));
@@ -53,30 +50,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
             finish();
         }
-        tournamentServices = RetrofitClient.createServiceWithAuth(TournamentServices.class,tokenManager);
+        patientServices = RetrofitClient.createServiceWithAuth(PatientServices.class,tokenManager);
 
-        btnGetTournamentsList.setOnClickListener(new View.OnClickListener() {
+        btnGetPatientList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getTournamentsList();
+                getPatientList();
             }
         });
 
-        btnStream.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, StreamActivity.class);
-                startActivity(intent);
-            }
-        });
 
-        btnProTeam.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ProTeamsActivity.class);
-                startActivity(intent);
-            }
-        });
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,37 +69,35 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        btnAddTournament.setOnClickListener(new View.OnClickListener() {
+        btnAddPatient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, TournamentActivity.class);
-                intent.putExtra("tournamentName", "");
-                intent.putExtra("identityId", "");
-                intent.putExtra("place", "");
-                intent.putExtra("type", "");
-                intent.putExtra("prizePool", "");
-                intent.putExtra("dateStart", "");
-                intent.putExtra("dateEnd", "");
-                intent.putExtra("description", "");
-                intent.putExtra("game", "");
+                Intent intent = new Intent(MainActivity.this, PatientActivity.class);
+                intent.putExtra("firstName", "");
+                intent.putExtra("lastName", "");
+                intent.putExtra("userId", "");
+                intent.putExtra("gender", "");
+                intent.putExtra("age", "");
+                intent.putExtra("address", "");
+                intent.putExtra("birthDate", "");
                 startActivity(intent);
             }
         });
     }
 
-    public void getTournamentsList(){
-        Call<List<Tournament>> call = tournamentServices.getTournaments();
-        call.enqueue(new Callback<List<Tournament>>() {
+    public void getPatientList(){
+        Call<List<Patient>> call = patientServices.getPatients();
+        call.enqueue(new Callback<List<Patient>>() {
             @Override
-            public void onResponse(Call<List<Tournament>> call, Response<List<Tournament>> response) {
+            public void onResponse(Call<List<Patient>> call, Response<List<Patient>> response) {
                 if(response.isSuccessful()){
                     list = response.body();
-                    listView.setAdapter(new TournamentAdapter(MainActivity.this, R.layout.list_tournament, list));
+                    listView.setAdapter(new PatientAdapter(MainActivity.this, R.layout.list_patient, list));
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Tournament>> call, Throwable t) {
+            public void onFailure(Call<List<Patient>> call, Throwable t) {
                 Log.e("ERROR: ", t.getMessage());
             }
         });

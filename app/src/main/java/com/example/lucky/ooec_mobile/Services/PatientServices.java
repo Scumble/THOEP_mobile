@@ -1,6 +1,5 @@
 package com.example.lucky.ooec_mobile.Services;
-
-import com.example.lucky.ooec_mobile.Models.Tournament;
+import com.example.lucky.ooec_mobile.Models.Patient;
 
 import java.util.List;
 
@@ -13,21 +12,21 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-public interface TournamentServices {
-    @GET("tournament/getcreatedbyuser")
-    Call<List<Tournament>> getTournaments();
+public interface PatientServices {
+    @GET("patients")
+    Call<List<Patient>> getPatients();
 
-    @POST("tournament/create")
+    @POST("patients")
     @Headers({
             "Content-Type: application/json;charset=utf-8",
             "Accept: application/json;charset=utf-8",
             "Cache-Control: max-age=640000"
     })
-    Call<Tournament> addTournament(@Body Tournament tournament);
+    Call<Patient> addPatient(@Body Patient patient);
 
-    @PUT("tournament/update")
-    Call<Tournament> updateTournament(@Body Tournament tournament);
+    @PUT("patients")
+    Call<Patient> updatePatient(@Body Patient patient);
 
-    @DELETE("tournament/delete/{id}")
-    Call<Tournament> deleteTournament(@Path("id") int id);
+    @DELETE("patients/{id}")
+    Call<Patient> deletePatient(@Path("id") int id);
 }

@@ -6,17 +6,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 
-import com.example.lucky.ooec_mobile.Adapters.LobbyAdapter;
+import com.example.lucky.ooec_mobile.Adapters.HealthInfoAdapter;
 import com.example.lucky.ooec_mobile.Adapters.TokenManager;
-import com.example.lucky.ooec_mobile.Adapters.TournamentAdapter;
-import com.example.lucky.ooec_mobile.Models.Lobby;
-import com.example.lucky.ooec_mobile.Models.Tournament;
-import com.example.lucky.ooec_mobile.Services.LobbyServices;
+import com.example.lucky.ooec_mobile.Models.HealthInfo;
+import com.example.lucky.ooec_mobile.Services.HealthInfoServices;
 import com.example.lucky.ooec_mobile.Services.RetrofitClient;
-import com.example.lucky.ooec_mobile.Services.TournamentServices;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,21 +22,21 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainLobbyActivity extends AppCompatActivity {
-    Button btnAddLobby;
-    Button btnGetLobbyList;
+    Button btnAddHealthInfo;
+    Button btnGetHealthInfoList;
     ListView listView;
-    LobbyServices lobbyServices;
+    HealthInfoServices healthInfoServices;
     TokenManager tokenManager;
-    List<Lobby> list = new ArrayList<Lobby>();
+    List<HealthInfo> list = new ArrayList<HealthInfo>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_lobby);
 
-        setTitle("Lobby");
+        setTitle("Health Info");
 
-        btnAddLobby = (Button) findViewById(R.id.btnAddLobby);
-        btnGetLobbyList = (Button) findViewById(R.id.btnGetLobbyList);
+        btnAddHealthInfo = (Button) findViewById(R.id.btnAddHealthInfo);
+        btnGetHealthInfoList = (Button) findViewById(R.id.btnGetHealthInfoList);
         listView = (ListView) findViewById(R.id.listView);
         tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", MODE_PRIVATE));
 
@@ -49,45 +45,45 @@ public class MainLobbyActivity extends AppCompatActivity {
             finish();
         }
         Bundle extras = getIntent().getExtras();
-        final String tournamentId = extras.getString("tournamentId");
-        lobbyServices = RetrofitClient.createServiceWithAuth(LobbyServices.class,tokenManager);
+        final String patientId = extras.getString("patientId");
+        healthInfoServices = RetrofitClient.createServiceWithAuth(HealthInfoServices.class,tokenManager);
 
-        btnGetLobbyList.setOnClickListener(new View.OnClickListener() {
+        btnGetHealthInfoList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getLobbyList(Integer.parseInt(tournamentId));
+                getHealthInfoList(Integer.parseInt(patientId));
             }
         });
 
-        btnAddLobby.setOnClickListener(new View.OnClickListener() {
+        btnAddHealthInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainLobbyActivity.this, LobbyActivity.class);
-                intent.putExtra("scoreWinner", "");
-                intent.putExtra("scoreLoser", "");
-                intent.putExtra("winner", "");
-                intent.putExtra("dateStart", "");
-                intent.putExtra("tournamentId", String.valueOf(tournamentId));
-                intent.putExtra("radiant_team_name", "");
-                intent.putExtra("dire_team_name", "");
+                Intent intent = new Intent(MainLobbyActivity.this, HealthInfoActivity.class);
+                intent.putExtra("diseaseCode", "");
+                intent.putExtra("heartRate", "");
+                intent.putExtra("bloodPressure", "");
+                intent.putExtra("temperature", "");
+                intent.putExtra("patientId", String.valueOf(patientId));
+                intent.putExtra("weight", "");
+                intent.putExtra("time", "");
                 startActivity(intent);
             }
         });
     }
 
-    public void getLobbyList(int tournamentId){
-        Call<List<Lobby>> call = lobbyServices.getLobbies(tournamentId);
-        call.enqueue(new Callback<List<Lobby>>() {
+    public void getHealthInfoList(int patientId){
+        Call<List<HealthInfo>> call = healthInfoServices.getHealthInfo(patientId);
+        call.enqueue(new Callback<List<HealthInfo>>() {
             @Override
-            public void onResponse(Call<List<Lobby>> call, Response<List<Lobby>> response) {
+            public void onResponse(Call<List<HealthInfo>> call, Response<List<HealthInfo>> response) {
                 if(response.isSuccessful()){
                     list = response.body();
-                    listView.setAdapter(new LobbyAdapter(MainLobbyActivity.this, R.layout.list_lobby, list));
+                    listView.setAdapter(new HealthInfoAdapter(MainLobbyActivity.this, R.layout.list_health, list));
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Lobby>> call, Throwable t) {
+            public void onFailure(Call<List<HealthInfo>> call, Throwable t) {
                 Log.e("ERROR: ", t.getMessage());
             }
         });

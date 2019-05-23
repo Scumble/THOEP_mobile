@@ -18,7 +18,6 @@ import com.example.lucky.ooec_mobile.Models.ApiError;
 import com.example.lucky.ooec_mobile.Models.Register;
 import com.example.lucky.ooec_mobile.Services.LoginServices;
 import com.example.lucky.ooec_mobile.Services.RetrofitClient;
-import com.example.lucky.ooec_mobile.Services.TournamentServices;
 import com.example.lucky.ooec_mobile.Services.Utils;
 
 import java.io.IOException;
@@ -73,6 +72,7 @@ public class RegisterActivity extends AppCompatActivity {
         }*/
     }
 
+
     @OnClick(R.id.btn_register)
     void register(){
         Register register=new Register();
@@ -116,7 +116,6 @@ public class RegisterActivity extends AppCompatActivity {
             });
         }
     }
-
     @OnClick(R.id.go_to_login)
     void goToRegister(){
         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));

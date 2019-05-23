@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LobbyActivity">
+    tools:context=".PatientActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,118 +13,105 @@
         >
 
         <TextView
-            android:id="@+id/txtLId"
+            android:id="@+id/txtUId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ID"
+            android:text="@string/patient_id"
             android:textSize="20dp"
             android:layout_marginTop="5dp"
             />
 
         <EditText
-            android:id="@+id/edtLId"
+            android:id="@+id/edtUId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
             />
 
         <TextView
-            android:id="@+id/txtLScoreWinner"
+            android:id="@+id/txtFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/score_winner"
+            android:text="@string/firstname"
             android:textSize="20dp"
             android:layout_marginTop="5dp"
             />
 
         <EditText
-            android:id="@+id/edtScoreWinner"
+            android:id="@+id/edtFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
         <TextView
-            android:id="@+id/txtLScoreLoser"
+            android:id="@+id/txtLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/score_loser"
+            android:text="@string/lastname"
             android:textSize="20dp"
             android:layout_marginTop="5dp"
             />
 
         <EditText
-            android:id="@+id/edtScoreLoser"
+            android:id="@+id/edtLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
         <TextView
-            android:id="@+id/txtLWinner"
+            android:id="@+id/txtUserId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/winner"
+            android:text="@string/identity_id"
             android:textSize="20dp"
             android:layout_marginTop="5dp"
             />
 
         <EditText
-            android:id="@+id/edtWinner"
+            android:id="@+id/edtUserId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
         <TextView
-            android:id="@+id/txtLDateStart"
+            android:id="@+id/txtGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/datestart"
+            android:text="@string/gender"
+            android:textSize="20dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <Spinner
+            android:id="@+id/edtGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/txtAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/address"
             android:textSize="20dp"
             android:layout_marginTop="5dp"
             />
 
         <EditText
-            android:id="@+id/edtLDateStart"
+            android:id="@+id/edtAddress"
+            android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
         <TextView
-            android:id="@+id/txtLTournamentId"
+            android:id="@+id/txtBirthDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tournament_id"
+            android:text="@string/birthDate"
             android:textSize="20dp"
             android:layout_marginTop="5dp"
             />
 
         <EditText
-            android:id="@+id/edtTournamentId"
+            android:id="@+id/edtBirthDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            />
-        <TextView
-            android:id="@+id/txtLRadiantTeamName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/radiant_team_name"
-            android:textSize="20dp"
-            android:layout_marginTop="5dp"
-            />
-
-        <EditText
-            android:id="@+id/edtRadiantTeamName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-        <TextView
-            android:id="@+id/txtLDireTeamName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/dire_team_name"
-            android:textSize="20dp"
-            android:layout_marginTop="5dp"
-            />
-
-        <EditText
-            android:id="@+id/edtDireTeamName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:inputType="text"
             />
 
         <Button
@@ -141,9 +128,47 @@
             android:id="@+id/btnDel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/delete_lobby"
+            android:text="@string/delete_patient"
             android:background="#FF0000"
             android:textColor="#ffffff"
+            android:layout_marginBottom="5dp"
+            />
+
+        <Button
+            android:id="@+id/btnHealthInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/show_healthInfo"
+            android:background="#32CD32"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="5dp"
+            />
+        <Button
+            android:id="@+id/btnMaps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/show_patientLocation"
+            android:background="#32CD32"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="5dp"
+            />
+        <Button
+            android:id="@+id/btnStatistics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/showStat"
+            android:background="#32CD32"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="5dp"
+            />
+        <Button
+            android:id="@+id/btnEncodePatient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/encode"
+            android:background="#32CD32"
+            android:textColor="#ffffff"
+            android:layout_marginBottom="5dp"
             />
 
     </LinearLayout>
